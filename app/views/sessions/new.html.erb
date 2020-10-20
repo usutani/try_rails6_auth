@@ -7,9 +7,16 @@
    <%= label_tag :email %>
    <%= text_field_tag :email %>
  </div>
- <div class="field">
+ <div data-controller="password-visibility" class="field">
    <%= label_tag :password %>
-   <%= password_field_tag :password %>
+   <%= password_field_tag :password, '',
+       data: { target: 'password-visibility.input' } %>
+   <label for="show-password">
+     <input data-target="password-visibility.checkbox"
+            data-action="password-visibility#update"
+            type="checkbox" id="show-password">
+     パスワードを表示する
+   </label>
  </div>
  <div class="actions">
    <%= submit_tag "Login" %>
